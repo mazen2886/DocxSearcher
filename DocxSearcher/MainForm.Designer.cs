@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.lb1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cBoxCaseSensitive = new System.Windows.Forms.CheckBox();
@@ -35,6 +36,7 @@
             this.rBtnRegex = new System.Windows.Forms.RadioButton();
             this.rBtnText = new System.Windows.Forms.RadioButton();
             this.resultListView = new System.Windows.Forms.ListView();
+            this.resultColumn1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultColumn2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultColumn3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultColumn4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,7 +46,6 @@
             this.btnSearchDirectory = new System.Windows.Forms.Button();
             this.cBoxUseSubdirectories = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.resultColumn1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxFind.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,7 +68,7 @@
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(8, 68);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(296, 22);
             this.txtSearch.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             this.cBoxCaseSensitive.AutoSize = true;
             this.cBoxCaseSensitive.Location = new System.Drawing.Point(8, 23);
-            this.cBoxCaseSensitive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cBoxCaseSensitive.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxCaseSensitive.Name = "cBoxCaseSensitive";
             this.cBoxCaseSensitive.Size = new System.Drawing.Size(168, 21);
             this.cBoxCaseSensitive.TabIndex = 3;
@@ -93,9 +94,9 @@
             this.groupBoxFind.Controls.Add(this.txtSearch);
             this.groupBoxFind.Controls.Add(this.lb1);
             this.groupBoxFind.Location = new System.Drawing.Point(8, 139);
-            this.groupBoxFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxFind.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxFind.Name = "groupBoxFind";
-            this.groupBoxFind.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxFind.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxFind.Size = new System.Drawing.Size(314, 167);
             this.groupBoxFind.TabIndex = 1;
             this.groupBoxFind.TabStop = false;
@@ -105,7 +106,7 @@
             // 
             this.rBtnRegex.AutoSize = true;
             this.rBtnRegex.Location = new System.Drawing.Point(12, 128);
-            this.rBtnRegex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtnRegex.Margin = new System.Windows.Forms.Padding(4);
             this.rBtnRegex.Name = "rBtnRegex";
             this.rBtnRegex.Size = new System.Drawing.Size(151, 21);
             this.rBtnRegex.TabIndex = 9;
@@ -117,7 +118,7 @@
             this.rBtnText.AutoSize = true;
             this.rBtnText.Checked = true;
             this.rBtnText.Location = new System.Drawing.Point(12, 100);
-            this.rBtnText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtnText.Margin = new System.Windows.Forms.Padding(4);
             this.rBtnText.Name = "rBtnText";
             this.rBtnText.Size = new System.Drawing.Size(56, 21);
             this.rBtnText.TabIndex = 7;
@@ -127,6 +128,7 @@
             // 
             // resultListView
             // 
+            this.resultListView.AccessibleRole = System.Windows.Forms.AccessibleRole.Cell;
             this.resultListView.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.resultListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.resultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -136,8 +138,12 @@
             this.resultColumn4});
             this.resultListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultListView.FullRowSelect = true;
+            this.resultListView.HideSelection = false;
+            this.resultListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.resultListView.LabelEdit = true;
             this.resultListView.Location = new System.Drawing.Point(0, 0);
-            this.resultListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultListView.Margin = new System.Windows.Forms.Padding(4);
             this.resultListView.MultiSelect = false;
             this.resultListView.Name = "resultListView";
             this.resultListView.Size = new System.Drawing.Size(565, 389);
@@ -147,6 +153,11 @@
             this.resultListView.ItemActivate += new System.EventHandler(this.resultListView_ItemActivate);
             this.resultListView.SelectedIndexChanged += new System.EventHandler(this.resultListView_SelectedIndexChanged);
             // 
+            // resultColumn1
+            // 
+            this.resultColumn1.Text = "Number";
+            this.resultColumn1.Width = 108;
+            // 
             // resultColumn2
             // 
             this.resultColumn2.Text = "File Name";
@@ -155,6 +166,7 @@
             // resultColumn3
             // 
             this.resultColumn3.Text = "Size [KB]";
+            this.resultColumn3.Width = 93;
             // 
             // resultColumn4
             // 
@@ -166,7 +178,7 @@
             this.splitContainer1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -191,9 +203,9 @@
             this.groupBoxSearchDirectory.Controls.Add(this.btnSearchDirectory);
             this.groupBoxSearchDirectory.Controls.Add(this.cBoxUseSubdirectories);
             this.groupBoxSearchDirectory.Location = new System.Drawing.Point(8, 4);
-            this.groupBoxSearchDirectory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSearchDirectory.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxSearchDirectory.Name = "groupBoxSearchDirectory";
-            this.groupBoxSearchDirectory.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSearchDirectory.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxSearchDirectory.Size = new System.Drawing.Size(314, 128);
             this.groupBoxSearchDirectory.TabIndex = 8;
             this.groupBoxSearchDirectory.TabStop = false;
@@ -204,7 +216,7 @@
             this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDirectory.Location = new System.Drawing.Point(8, 62);
-            this.txtDirectory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDirectory.Margin = new System.Windows.Forms.Padding(4);
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(344, 22);
             this.txtDirectory.TabIndex = 4;
@@ -212,7 +224,7 @@
             // btnSearchDirectory
             // 
             this.btnSearchDirectory.Location = new System.Drawing.Point(8, 23);
-            this.btnSearchDirectory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchDirectory.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchDirectory.Name = "btnSearchDirectory";
             this.btnSearchDirectory.Size = new System.Drawing.Size(133, 31);
             this.btnSearchDirectory.TabIndex = 3;
@@ -226,7 +238,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cBoxUseSubdirectories.AutoSize = true;
             this.cBoxUseSubdirectories.Location = new System.Drawing.Point(8, 94);
-            this.cBoxUseSubdirectories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cBoxUseSubdirectories.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxUseSubdirectories.Name = "cBoxUseSubdirectories";
             this.cBoxUseSubdirectories.Size = new System.Drawing.Size(187, 21);
             this.cBoxUseSubdirectories.TabIndex = 2;
@@ -238,18 +250,13 @@
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Location = new System.Drawing.Point(8, 314);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(314, 71);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search DOCX";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // resultColumn1
-            // 
-            this.resultColumn1.Text = "Number";
-            this.resultColumn1.Width = 108;
             // 
             // MainForm
             // 
@@ -258,7 +265,7 @@
             this.ClientSize = new System.Drawing.Size(900, 389);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Docx Searcher";
